@@ -37,12 +37,13 @@ tf.random.set_seed(42)
 In this example, we will be using the MNIST dataset. But this same recipe can be used for other classification datasets as well.
 """
 
-(x_train, y_train), (x_test, y_test) = mnist.load_data()
-x_train = x_train.astype("float32") / 255.0
-x_test = x_test.astype("float32") / 255.0
+(x_train_orig, y_train), (x_test_orig, y_test) = mnist.load_data()
 
-x_train = np.reshape(x_train, newshape=(x_train.shape[0], np.prod(x_train.shape[1:])))
-x_test = np.reshape(x_test, newshape=(x_test.shape[0], np.prod(x_test.shape[1:])))
+x_train_orig = x_train_orig.astype("float32") / 255.0
+x_test_orig = x_test_orig.astype("float32") / 255.0
+
+x_train = np.reshape(x_train_orig, newshape=(x_train_orig.shape[0], np.prod(x_train_orig.shape[1:])))
+x_test = np.reshape(x_test_orig, newshape=(x_test_orig.shape[0], np.prod(x_test_orig.shape[1:])))
 
 print(x_train.shape)
 print(y_train.shape)
@@ -132,4 +133,3 @@ for im_ind in range(num_images_to_show):
     plt.imshow(x_train_orig[rand_ind, :, :], cmap="gray")
     plt.subplot(num_images_to_show, 2, plot_ind+1)
     plt.imshow(decoded_images_orig[rand_ind, :, :], cmap="gray")
-
