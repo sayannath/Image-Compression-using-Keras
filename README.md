@@ -2,4 +2,4 @@
 
 How to compress images using autoencoders
 
-> PR on Keras - Coming Soon
+> PR on Review - https://github.com/keras-team/keras-io/pull/506
